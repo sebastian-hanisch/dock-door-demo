@@ -372,7 +372,7 @@ pip install -r requirements-dev.txt
 pytest tests/ -v
 ```
 
-88 Tests, laufen automatisch bei jedem Push/PR über GitHub Actions.
+91 Tests, laufen automatisch bei jedem Push/PR über GitHub Actions.
 
 ## 3. Kostenlos online stellen (Streamlit Community Cloud)
 
