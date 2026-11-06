@@ -47,6 +47,17 @@ Demo?" unten.
 """
 )
 
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/tor-zuordnung-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+In einer Umschlaghalle bekommt jede Relation, also jede feste Verbindung zwischen einer Quelle und einem Ziel, genau ein Tor. Zwischen den Relationen wandert Ware, zwischen manchen viel, zwischen anderen wenig. Gesucht ist die Zuordnung, bei der die Wege in der Halle insgesamt möglichst kurz sind, gewichtet mit der Menge, die sie zurücklegt. Die Demo vergleicht drei Verfahren. Das erste folgt nur der Ankunftsreihenfolge. Das zweite setzt umschlagstarke Relationen nacheinander auf nahe Tore. Das dritte tauscht danach Paare von Toren, solange das den Weg verkürzt. Sie sehen die Halle von oben mit den Wegen der drei Zuordnungen. Die Hallen sind zufällig erzeugt.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/tor-zuordnung-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
+
 st.caption("🎯 Schnellstart – ein Beispielszenario laden:")
 preset_col1, preset_col2, preset_col3 = st.columns(3)
 with preset_col1:
@@ -372,6 +383,22 @@ bleibt aber dasselbe.
     )
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/tor-zuordnung-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind $n$ Relationen, $n$ Tore mit festen Positionen in der Halle und für jedes Paar von Relationen ein Umschlagvolumen in Bewegungen pro Tag. Gesucht ist, welche Relation an welchem Tor steht, sodass die Summe aus Umschlagvolumen mal Entfernung der beiden Tore möglichst klein ist.
+
+| Symbol | Bedeutung |
+|---|---|
+| $f_{ij}$ | Umschlagvolumen zwischen Relation $i$ und Relation $j$ (Bewegungen pro Tag), symmetrisch |
+| $d_{kl}$ | Entfernung zwischen Tor $k$ und Tor $l$ (Luftlinie) |
+| $\pi$ | die Zuordnung: Relation $i$ steht an Tor $\pi(i)$ |
+| $x_{ik}$ | 1, wenn Relation $i$ an Tor $k$ steht, sonst 0 |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/tor-zuordnung-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 Formal ist das Tor-Zuordnungsproblem ein **quadratisches Zuordnungsproblem** (QAP), das
